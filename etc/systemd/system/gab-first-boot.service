@@ -1,0 +1,13 @@
+[Unit]
+Description=GAB OS First Boot Setup
+After=local-fs.target plymouth-start.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/gab-first-boot.sh
+StandardOutput=tty
+StandardError=tty
+
+[Install]
+WantedBy=multi-user.target
